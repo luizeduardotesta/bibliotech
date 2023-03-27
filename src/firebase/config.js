@@ -12,7 +12,7 @@ const firebaseConfig = {
   projectId: "bibliotech-lets",
   storageBucket: "bibliotech-lets.appspot.com",
   messagingSenderId: "586430646728",
-  appId: "1:586430646728:web:bc3dfe79791d57cba258fd"
+  appId: "1:586430646728:web:bc3dfe79791d57cba258fd",
 };
 
 // Initialize Firebase

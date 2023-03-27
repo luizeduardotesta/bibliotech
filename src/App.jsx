@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Cadastro } from "./pages/Cadastro/Cadastro";
 import { Home } from "./pages/Home/Home";
@@ -16,6 +17,7 @@ export function App() {
                     <Route path="/cadastro" element={<Cadastro />} />
                 </Routes>
             </BrowserRouter>
+            <Toaster />
         </>
     )
 }
