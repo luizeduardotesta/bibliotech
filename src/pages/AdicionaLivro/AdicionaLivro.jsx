@@ -1,5 +1,6 @@
 import { Button, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { addLivro } from "../../firebase/livros";
 
 export function AdicionaLivro() {
     const {
@@ -8,7 +9,9 @@ export function AdicionaLivro() {
         formState: { errors },
     } = useForm();
 
-    function onSubmit(data) { }
+    function onSubmit(data) {
+        addLivro(data);
+    }
 
     return (
         <div className="adicionar-livro">
