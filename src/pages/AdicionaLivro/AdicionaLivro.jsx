@@ -1,5 +1,7 @@
 import { Button, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router";
 import { addLivro } from "../../firebase/livros";
 
 export function AdicionaLivro() {
@@ -9,8 +11,13 @@ export function AdicionaLivro() {
         formState: { errors },
     } = useForm();
 
+    const navigate = useNavigate();
+
     function onSubmit(data) {
-        addLivro(data);
+        addLivro(data).then(() => {
+            toast.success("livro adicionado com sucesso!");
+            navigate("/livros");
+        });
     }
 
     return (
