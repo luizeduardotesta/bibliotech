@@ -9,6 +9,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { AuthContext } from "./contexts/AuthContext";
 import { auth } from "./firebase/config";
 import { AdicionaLivro } from "./pages/AdicionaLivro/AdicionaLivro";
+import { Livros } from "./pages/Livros/Livros";
 
 export function App() {
     const [usuarioLogado, setUsuarioLogado] = useState();
@@ -27,6 +28,7 @@ export function App() {
                     <Routes>
                         <Route path="/" element={<Root />}>
                             <Route path="/" element={<Home />} />
+                            <Route path="/livros" element={<Livros />} />
                             <Route path="/livros/adicionar" element={<AdicionaLivro />} />
                         </Route>
                         <Route path="/login" element={<Login />} />
