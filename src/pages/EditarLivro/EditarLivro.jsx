@@ -28,7 +28,7 @@ export function EditarLivro() {
         getLivro(id).then((livro) => {
             reset(livro);
         })
-    }, []);
+    }, [id, reset]);
 
     return (
         <div className="editar-livro">
