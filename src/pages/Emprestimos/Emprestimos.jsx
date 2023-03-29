@@ -49,7 +49,7 @@ export function Emprestimos() {
                                             <td>
                                                 <Badge bg={emprestimo.status === "Pendente" ? "warning" : "success"}>{emprestimo.status}</Badge>
                                             </td>
-                                            {dataEmprestimo}
+                                            <td>{dataEmprestimo}</td>
                                         </tr>
                                     )
                                 })}
