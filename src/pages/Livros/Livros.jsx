@@ -11,19 +11,21 @@ export function Livros() {
     const [livros, setLivros] = useState(null);
 
     useEffect(() => {
-        getLivros().then(busca => {
-            setLivros(busca)
-        })
+        initializeTable();
     }, []);
 
+    function initializeTable() {
+        getLivros().then(resultados => {
+            setLivros(resultados)
+        })
+    }
+
     function onDeleteLivro(id, titulo) {
-        const deletar = window.confirm(`Tem certeza que deseja excluir o livro ${titulo}?`)
+        const deletar = window.confirm(`Tem certeza que deseja excluir o livro ${titulo}?`);
         if (deletar) {
             deleteLivro(id).then(() => {
-                toast.success(`O Livro ${titulo} foi deletado com sucesso!`)
-                getLivros().then(busca => {
-                    setLivros(busca)
-                })
+                toast.success(`${titulo} apagado com sucesso!`, { duration: 2000, position: "bottom-right" });
+                initializeTable();
             })
         }
     }
