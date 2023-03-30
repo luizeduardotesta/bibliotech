@@ -1,17 +1,16 @@
-import { addDoc, getDocs, updateDoc } from "firebase/firestore"
+import { addDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
 import { emprestimosCollection } from "./collections";
-import { addDoc, doc, getDoc, getDocs } from "firebase/firestore";
 
-export async function adicionarEmprestimo(data){
+export async function adicionarEmprestimo(data) {
     await addDoc(emprestimosCollection, data);
 }
 
-export async function getEmprestimos(data){
+export async function getEmprestimos() {
     const snapshot = await getDocs(emprestimosCollection);
     let emprestimos = [];
-    snapshot.forEach((doc) => {
-        emprestimos.push({...doc.data(), id: doc.id})
-    })
+    snapshot.forEach(doc => {
+        emprestimos.push({...doc.data(), id: doc.id});
+    });
     return emprestimos;
 }
 
